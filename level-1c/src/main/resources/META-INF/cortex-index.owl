@@ -209,7 +209,9 @@
       </rdfs:comment>
       <rdfs:subClassOf rdf:resource="&jpeg2000;JPEG2000"/>
       <drb:signature rdf:parseType="Resource">
+      <!--
          <drb:parentClassTest>&s2;imageFolder</drb:parentClassTest>
+      -->
          <drb:nameMatch>(S2[AB]_...._MSI_L1C_.*|T....._[0-9]{4}[0-1][0-9][0-3][0-9]T[0-2][0-9][0-6][0-9][0-6][0-9])_(B(01|02|03|04|05|06|07|08|09|10|11|12|8A)|TCI|PVI)\.(?i)jp2</drb:nameMatch>
       </drb:signature>
    </owl:Class>
@@ -308,6 +310,27 @@
          </drb:xqueryTest>
       </drb:signature>
       <drb:schemaLocation>xsd/int/esa/sentinel-2/S2_PDI_Level-1C_Datastrip_Metadata.xsd</drb:schemaLocation>
+   </owl:Class>
+
+   <!-- ========================================= -->
+   <!-- PDI Level-1C TCI                          -->
+   <!-- ========================================= -->
+
+   <owl:Class rdf:about="&s2;level1CTCITar">
+      <rdfs:label xml:lang="en">Sentinel-2 Tar Level-1C True Color Image (TCI)</rdfs:label>
+      <rdfs:comment xml:lang="en">
+      The set of PDIs related to the True Colour Images (TCIs) are stored separately in their own PDIs.
+      True Colour Image PDI is defined as a tar and consists of:
+      * Image file: (GML-JPEG2000). The GML-JPEG2000 implementation is detailed in
+      the reference document [GMLJP2]. It is a single file in JP2 format which gathers the
+      3 RGB bands.
+      * Inventory_Metadata file: XML inventory metadata file.
+      </rdfs:comment>
+      <rdfs:subClassOf rdf:resource="&s2;item"/>
+      <rdfs:subClassOf rdf:resource="&drb;tar"/>
+      <drb:signature rdf:parseType="Resource">
+         <drb:nameMatch>S2[AB]_...._MSI_L1C_TC.*_N[0-9]{2}\.[0-9]{2}\.tar</drb:nameMatch>
+      </drb:signature>
    </owl:Class>
 
 </rdf:RDF>
